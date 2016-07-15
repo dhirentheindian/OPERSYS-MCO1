@@ -1,16 +1,17 @@
 
 public class CalTrain {
-	Station st = new Station();
-	int trainCalled = 0;
-	int availSeats = 0;
-	public void station_load_train(Station s, int count){
+	Station st;
+	int trainCalled; // 1 = yes, 0 = no
+	int availSeats; 
+	public int station_load_train(Station s, int count){
 		while(count > 0){
 			//loops here
 		}
 		trainCalled = 1;
+		return 1;
 		//needs a return type other than void zzzz
 	}
-	public void station_wait_for_train(Station s){
+	public int station_wait_for_train(Station s){
 			if(trainCalled == 0){
 				station_load_train(st, availSeats);
 			}
@@ -19,12 +20,19 @@ public class CalTrain {
 					// return something
 					//once it returns, passenger will move to the train!
 					//will call station_on_board
+					return 1;
 				}
 			}
+			return 0;
 	}
 	public boolean station_on_board(Station s){
 		return true;
 		//let the train know it is on board!
 	}
-
+	
+	public CalTrain(){
+		st = new Station();
+		trainCalled = 0;
+		availSeats = 0; 
+	}
 }
